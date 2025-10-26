@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.uiprototype.data.LockerRepository;
 import com.example.uiprototype.model.Locker;
 import com.example.uiprototype.ui.LockerAdapter;
+import com.google.android.material.appbar.MaterialToolbar;
+
 import java.util.List;
 
 public class RentLockerActivity extends AppCompatActivity {
@@ -18,29 +20,24 @@ public class RentLockerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_generic);
-        setTitle("Rent a Locker");
 
-        recycler = findViewById(R.id.recycler);
+        MaterialToolbar tb = findViewById(R.id.toolbar);
+        tb.setTitle("Rent a Locker");
+        tb.setNavigationOnClickListener(v -> finish());
+
+        RecyclerView recycler = findViewById(R.id.recycler);
         recycler.setLayoutManager(new LinearLayoutManager(this));
 
-        refreshList();
+        refreshList(recycler);
     }
 
-    private void refreshList() {
+    private void refreshList(RecyclerView recycler) {
         List<Locker> available = LockerRepository.getInstance().getAvailable();
-        LockerAdapter adapter = new LockerAdapter(
-                available,
-                true,
-                locker -> {
-                    boolean ok = LockerRepository.getInstance().rentLocker(locker.getId());
-                    if (ok) {
-                        Toast.makeText(this, "Locker #" + locker.getId() + " rented!", Toast.LENGTH_SHORT).show();
-                        refreshList();
-                    } else {
-                        Toast.makeText(this, "Sorry, no longer available.", Toast.LENGTH_SHORT).show();
-                    }
-                }
-        );
+        LockerAdapter adapter = new LockerAdapter(available, true, locker -> {
+            boolean ok = LockerRepository.getInstance().rentLocker(locker.getId());
+            Toast.makeText(this, ok ? "Locker #" + locker.getId() + " rented!" : "Sorry, no longer available.", Toast.LENGTH_SHORT).show();
+            if (ok) refreshList(recycler);
+        });
         recycler.setAdapter(adapter);
     }
 }
