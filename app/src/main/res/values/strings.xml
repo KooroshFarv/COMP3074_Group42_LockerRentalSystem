@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">UIPrototype</string>
+    <string name="login_title">GMJK Lockers</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
+    <string name="welcome">Welcome!</string>
+    <string name="email_hint">Email Address</string>
+    <string name="password_hint">Password</string>
+    <string name="continue_button">Continue</string>
+    <string name="create_account">Create Account</string>
 </resources>
