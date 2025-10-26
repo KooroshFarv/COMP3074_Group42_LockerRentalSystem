@@ -1,0 +1,25 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
+            android:title="Home" />
+
+        <item
+            android:id="@+id/nav_rent"
+            android:icon="@drawable/ic_locker"
+            android:title="Rent Locker" />
+
+        <item
+            android:id="@+id/nav_view"
+            android:icon="@drawable/ic_visibility"
+            android:title="View My Locker" />
+
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_logout"
+            android:title="Sign Out" />
+
+    </group>
+</menu>
