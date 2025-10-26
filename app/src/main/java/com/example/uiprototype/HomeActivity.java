@@ -7,6 +7,8 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.drawerlayout.widget.DrawerLayout;
+
+import com.example.uiprototype.ui.AccessActivity;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.navigation.NavigationView;
 
@@ -55,6 +57,11 @@ public class HomeActivity extends AppCompatActivity {
 
         Button rentBtn = findViewById(R.id.btnRentLocker);
         Button viewBtn = findViewById(R.id.btnViewLocker);
+
+        Button accessBtn = findViewById(R.id.btnAccessActivity);
+        accessBtn.setOnClickListener( V ->
+                startActivity(new Intent(HomeActivity.this, AccessActivity.class))
+                );
 
 
         if (rentBtn != null) {
