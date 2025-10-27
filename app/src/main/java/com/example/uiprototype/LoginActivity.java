@@ -27,5 +27,12 @@ public class LoginActivity extends AppCompatActivity {
             Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
             startActivity(intent);
         });
+        // Create Account button goes to CreateAccountActivity
+        Button createAccountButton = findViewById(R.id.btnCreateAccount);
+        createAccountButton.setOnClickListener(v -> {
+            Intent intent = new Intent(LoginActivity.this, CreateAccountActivity.class);
+            startActivity(intent);
+        });
+
     }
 }
