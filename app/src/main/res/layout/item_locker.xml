@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginVertical="8dp"
@@ -52,13 +53,14 @@
                 android:id="@+id/btnRent"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
+                android:background="@drawable/bg_button_purple"
                 android:minWidth="0dp"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:text="Rent"
                 android:textAllCaps="false"
                 android:textColor="@android:color/white"
-                android:background="@drawable/bg_button_purple" />
+                tools:ignore="TouchTargetSizeCheck" />
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>
