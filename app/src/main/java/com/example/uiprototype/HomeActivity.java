@@ -29,25 +29,33 @@ public class HomeActivity extends AppCompatActivity {
         topAppBar = findViewById(R.id.topAppBar);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawerLayout, topAppBar,
-                R.string.navigation_drawer_open, R.string.navigation_drawer_close
+                this,
+                drawerLayout,
+                topAppBar,
+                R.string.navigation_drawer_open,
+                R.string.navigation_drawer_close
         );
+
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
 
+
         navigationView.setNavigationItemSelectedListener(item -> {
             int id = item.getItemId();
-            if(id == R.id.nav_home){
+            if (id == R.id.nav_home){
 
             } else if (id == R.id.nav_rent) {
                 startActivity(new Intent(this, RentLockerActivity.class));
+                overridePendingTransition(R.anim.slide_to_right, R.anim.fade_out);
             }else if (id == R.id.nav_view) {
                 startActivity(new Intent (this, ViewLockersActivity.class));
+                overridePendingTransition(R.anim.slide_to_right, R.anim.fade_out);
             }else if(id == R.id.nav_logout) {
                 Intent i = new Intent(this, LoginActivity.class);
                 i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(i);
+                overridePendingTransition(R.anim.fade_in, R.anim.slide_to_left);
                 finish();
 
             }
@@ -55,25 +63,32 @@ public class HomeActivity extends AppCompatActivity {
             return true;
         });
 
+
         Button rentBtn = findViewById(R.id.btnRentLocker);
         Button viewBtn = findViewById(R.id.btnViewLocker);
-
         Button accessBtn = findViewById(R.id.btnAccessActivity);
-        accessBtn.setOnClickListener( V ->
-                startActivity(new Intent(HomeActivity.this, AccessActivity.class))
-                );
 
-
-        if (rentBtn != null) {
-            rentBtn.setOnClickListener(v ->
-                    startActivity(new Intent(HomeActivity.this, RentLockerActivity.class))
-            );
+        if (accessBtn != null) {
+            accessBtn.setOnClickListener(v -> {
+                startActivity(new Intent(HomeActivity.this, AccessActivity.class));
+                overridePendingTransition(R.anim.slide_to_right, R.anim.fade_out);
+            });
         }
 
+        if (rentBtn != null) {
+            rentBtn.setOnClickListener(v -> {
+                startActivity(new Intent(HomeActivity.this, RentLockerActivity.class));
+                overridePendingTransition(R.anim.slide_to_right, R.anim.fade_out);
+            });
+
+        }
+
+
         if (viewBtn != null) {
-            viewBtn.setOnClickListener(v ->
-                    startActivity(new Intent(HomeActivity.this, ViewLockersActivity.class))
-            );
+            viewBtn.setOnClickListener(v -> {
+                startActivity(new Intent(HomeActivity.this, ViewLockersActivity.class));
+                overridePendingTransition(R.anim.slide_to_right, R.anim.fade_out);
+            });
         }
 
     }

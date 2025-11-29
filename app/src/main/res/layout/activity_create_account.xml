@@ -7,13 +7,12 @@
     android:padding="24dp"
     android:background="@color/colorBackground">
 
-    <!-- Title -->
     <TextView
         android:id="@+id/textViewTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
-        android:text="Create Account"
+        android:text="@string/create_account"
         android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="@color/colorPrimary"
@@ -26,7 +25,7 @@
         android:id="@+id/inputLayoutName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Full Name"
+        android:hint="@string/full_name"
         app:boxStrokeColor="@color/colorSecondary"
         app:boxStrokeWidth="2dp"
         app:boxCornerRadiusTopStart="12dp"
@@ -49,7 +48,7 @@
         android:id="@+id/inputLayoutEmail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Email"
+        android:hint="@string/email_hint"
         app:boxStrokeColor="@color/colorSecondary"
         app:boxStrokeWidth="2dp"
         app:boxCornerRadiusTopStart="12dp"
@@ -69,12 +68,11 @@
             android:textColor="@color/colorText"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/inputLayoutPassword"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Password"
+        android:hint="@string/password_hint"
         app:passwordToggleEnabled="true"
         app:boxStrokeColor="@color/colorSecondary"
         app:boxStrokeWidth="2dp"
@@ -95,11 +93,12 @@
             android:textColor="@color/colorText"/>
     </com.google.android.material.textfield.TextInputLayout>
 
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnCreateAccount"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Create Account"
+        android:text="@string/create_account"
         android:textSize="18sp"
         android:textColor="@color/white"
         android:backgroundTint="@color/colorSecondary"
@@ -109,6 +108,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="32dp"/>
 
+
     <TextView
         android:id="@+id/textBackToLogin"
         android:layout_width="wrap_content"
@@ -117,10 +117,10 @@
         android:clickable="true"
         android:focusable="true"
         android:minHeight="48dp"
-        android:text="Back to Login"
+        android:text="@string/back_to_login"
         android:textColor="@color/colorSecondary"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnCreateAccount" />
+        app:layout_constraintTop_toBottomOf="@id/btnCreateAccount"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
