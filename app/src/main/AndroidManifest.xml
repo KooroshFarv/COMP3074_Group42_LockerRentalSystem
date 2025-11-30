@@ -14,6 +14,10 @@
         <activity android:name=".ui.AccessActivity" />
         <activity android:name=".RentLockerActivity" />
         <activity android:name=".ViewLockersActivity" />
+        <activity android:name=".CreateAccountActivity"/>
+        <activity android:name=".ui.ProfileActivity" />
+        <activity android:name=".ui.LockerDetailsActivity" />
+
         <activity
             android:name=".HomeActivity"
             android:exported="false" />

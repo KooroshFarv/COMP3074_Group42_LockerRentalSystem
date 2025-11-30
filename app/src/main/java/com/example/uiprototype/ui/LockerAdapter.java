@@ -1,5 +1,6 @@
 package com.example.uiprototype.ui;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,57 +12,99 @@ import com.example.uiprototype.R;
 import com.example.uiprototype.model.Locker;
 import java.util.List;
 
-public class LockerAdapter extends RecyclerView.Adapter<LockerAdapter.LockerVH> {
 
-    public interface OnRentClick { void onRent(Locker locker); }
+public class LockerAdapter extends RecyclerView.Adapter<LockerAdapter.ViewHolder> {
 
-    private final List<Locker> data;
-    private final boolean showRentButton; // true on Rent screen
-    private final OnRentClick rentClick;
+    private final List<Locker> lockers;
+    private final boolean showRentButton;
+    private final OnLockerActionListener actionListener;
 
-    public LockerAdapter(List<Locker> data, boolean showRentButton, OnRentClick rentClick) {
-        this.data = data;
+    private final OnLockerClickListener clickListener;
+
+    public interface OnLockerActionListener {
+        void onLockerAction(Locker locker);
+    }
+
+    public interface OnLockerClickListener {
+        void onLockerClick(Locker locker);
+    }
+
+    public LockerAdapter(List<Locker> lockers, boolean showRentButton, OnLockerActionListener actionListener,OnLockerClickListener clickListener) {
+        this.lockers = lockers;
         this.showRentButton = showRentButton;
-        this.rentClick = rentClick;
+        this.actionListener = actionListener;
+        this.clickListener = clickListener;
     }
 
     @NonNull
     @Override
-    public LockerVH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_locker, parent, false);
-        return new LockerVH(v);
+        return new ViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull LockerVH h, int position) {
-        Locker l = data.get(position);
-        h.txtTitle.setText("Locker #" + l.getId() + " — " + l.getSize());
-        h.txtSubtitle.setText(l.getLocation());
-        h.txtStatus.setText(l.isAvailable() ? "Available" : "In Use");
+    public void onBindViewHolder(@NonNull ViewHolder h, int position) {
+        Locker locker = lockers.get(position);
+
+
+        h.txtTitle.setText("Locker #" + locker.getId() + " — " + locker.getSize());
+
+
+        h.txtSubtitle.setText(locker.getLocation());
+
+        if (locker.isAvailable()) {
+            h.txtStatus.setText("Available");
+            h.txtStatus.setTextColor(Color.parseColor("#2ECC71"));
+        } else {
+            h.txtStatus.setText("In Use");
+            h.txtStatus.setTextColor(Color.parseColor("#E74C3C"));
+        }
+
+
+        h.itemView.setOnClickListener(v -> {
+            if (clickListener != null) clickListener.onLockerClick(locker);
+        });
 
         if (showRentButton) {
-            h.btnRent.setVisibility(View.VISIBLE);
-            h.btnRent.setOnClickListener(v -> {
-                if (rentClick != null) rentClick.onRent(l);
-            });
+            if (locker.isAvailable()) {
+                h.btnAction.setVisibility(View.VISIBLE);
+                h.btnAction.setText("Rent");
+            } else {
+                h.btnAction.setVisibility(View.GONE);
+            }
         } else {
-            h.btnRent.setVisibility(View.GONE);
+            if (!locker.isAvailable()) {
+                h.btnAction.setVisibility(View.VISIBLE);
+                h.btnAction.setText("Return");
+            } else {
+                h.btnAction.setVisibility(View.GONE);
+            }
         }
+
+        h.btnAction.setOnClickListener(v -> {
+            if (actionListener != null) actionListener.onLockerAction(locker);
+        });
     }
 
     @Override
-    public int getItemCount() { return data.size(); }
+    public int getItemCount() {
+        return lockers.size();
+    }
 
-    static class LockerVH extends RecyclerView.ViewHolder {
-        final TextView txtTitle, txtSubtitle, txtStatus;
-        final Button btnRent;
-        LockerVH(@NonNull View v) {
-            super(v);
-            txtTitle = v.findViewById(R.id.txtTitle);
-            txtSubtitle = v.findViewById(R.id.txtSubtitle);
-            txtStatus = v.findViewById(R.id.txtStatus);
-            btnRent = v.findViewById(R.id.btnRent);
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+
+        TextView txtTitle, txtSubtitle, txtStatus;
+        Button btnAction;
+
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+
+            txtTitle = itemView.findViewById(R.id.txtTitle);
+            txtSubtitle = itemView.findViewById(R.id.txtSubtitle);
+            txtStatus = itemView.findViewById(R.id.txtStatus);
+            btnAction = itemView.findViewById(R.id.btnRent);
         }
     }
 }

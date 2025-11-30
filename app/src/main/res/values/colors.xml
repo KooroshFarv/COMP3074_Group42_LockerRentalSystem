@@ -2,4 +2,12 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="colorBackground">#121218</color>
+    <color name="colorPrimary">#1E1E26</color>
+    <color name="colorPrimaryVariant">#262633</color>
+    <color name="colorSecondary">#9F7BFF</color>
+    <color name="colorOnSecondary">#FFFFFFFF</color>
+    <color name="colorText">#EDEDED</color>
+    <color name="glassCard">#26FFFFFF</color>
+    <color name="glassBorder">#40FFFFFF</color>
 </resources>

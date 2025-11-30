@@ -29,15 +29,50 @@ public class LockerRepository {
     }
 
     public List<Locker> getAvailable() {
-        List<Locker> out = new ArrayList<>();
-        for (Locker l : lockers) if (l.isAvailable()) out.add(l);
-        return out;
+        List<Locker> available = new ArrayList<>();
+        for (Locker l : lockers) {
+            if (l.isAvailable()) {
+                available.add(l);
+            }
+        }
+        return available;
     }
 
-    public boolean rentLocker(int lockerId) {
+
+    public List<Locker> getMyLockers(String email) {
+        List<Locker> mine = new ArrayList<>();
+        for (Locker l : lockers) {
+            if (email.equals(l.getRentedBy())) {
+                mine.add(l);
+            }
+        }
+        return mine;
+    }
+
+    public Locker findLocker(int id){
+        for(Locker l : lockers) {
+            if (l.getId() == id) return l;
+        }
+        return null;
+    }
+
+    public boolean rentLocker(int lockerId, String email) {
         for (Locker l : lockers) {
             if (l.getId() == lockerId && l.isAvailable()) {
                 l.setAvailable(false);
+                l.setRentedBy(email);
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    public boolean returnLocker(int lockerId) {
+        for (Locker l : lockers) {
+            if (l.getId() == lockerId && !l.isAvailable()) {
+                l.setAvailable(true);
+                l.setRentedBy(null);
                 return true;
             }
         }

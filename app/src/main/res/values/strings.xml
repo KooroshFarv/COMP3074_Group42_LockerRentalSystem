@@ -1,8 +1,36 @@
 <resources>
     <string name="app_name">UIPrototype</string>
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="lockers">Lockers</string>
+    <string name="full_name">Full Name</string>
+    <string name="login_title">GMJK Lockers</string>
+    <string name="welcome">Welcome!</string>
+    <string name="email_hint">Email Address</string>
+    <string name="password_hint">Password</string>
+    <string name="continue_button">Continue</string>
+    <string name="back_to_login">Back to Login</string>
+    <string name="create_account">Create Account</string>
     <string name="home">Home</string>
-
+    <string name="rent_locker">Rent a Locker</string>
+    <string name="view_locker">View My Locker</string>
+    <string name="access_activity_demo">Access Activity Demo</string>
+    <string name="manage_locker_subtitle">Manage your locker easily</string>
+    <string name="lockers">Lockers</string>
+    <string name="no_lockers">You have no rented lockers</string>
+    <string name="profile">Profile</string>
+    <string name="profile_title">My Account</string>
+    <string name="logout">Log Out</string>
+    <string name="locker_available">Available</string>
+    <string name="locker_occupied">Occupied</string>
+    <string name="rented_by">Rented By:</string>
+    <string name="rent">Rent</string>
+    <string name="my_lockers_title">My Lockers</string>
+    <string name="return_locker">Return</string>
+    <string name="error_locker_not_found">Locker not found</string>
+    <string name="error">Error</string>
+    <string name="access_code_prefix">Access Code:</string>
+    <string name="expires_in">Expires in:</string>
+    <string name="access_expired">Access expired!</string>
+    <string name="back_home">Back to Home</string>
 </resources>
