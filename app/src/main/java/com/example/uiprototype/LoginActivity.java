@@ -66,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
                 return;
             }
 
-            // 4) Success → go to Home
+            // 4) Success, go to Home
             Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
             startActivity(intent);
             overridePendingTransition(R.anim.fade_in, R.anim.slide_to_left);

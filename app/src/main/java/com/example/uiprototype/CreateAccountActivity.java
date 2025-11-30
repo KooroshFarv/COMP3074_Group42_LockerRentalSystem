@@ -73,9 +73,6 @@ public class CreateAccountActivity extends AppCompatActivity {
                 return;
             }
 
-            // (optional) you could add more rules like uppercase, symbol, etc.
-            // if (!password.matches(".*[A-Z].*")) { ... }
-
             // 4) Save user – store email in lower case so it's consistent
             SharedPreferences prefs = getSharedPreferences("user_prefs", MODE_PRIVATE);
             prefs.edit()

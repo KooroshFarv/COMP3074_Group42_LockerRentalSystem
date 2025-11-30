@@ -43,13 +43,13 @@ public class RentLockerActivity extends AppCompatActivity {
         LockerAdapter adapter = new LockerAdapter(
                 available,
                 true,
-                locker -> {   // rent button click → go to details
+                locker -> {   // rent button click -> go to details
                     Intent i = new Intent(this, com.example.uiprototype.ui.LockerDetailsActivity.class);
                     i.putExtra("lockerId", locker.getId());
                     startActivity(i);
                     overridePendingTransition(R.anim.slide_to_right, R.anim.fade_out);
                 },
-                locker -> {   // whole card click → also go to details
+                locker -> {   // whole card click -> also go to details
                     Intent i = new Intent(this, com.example.uiprototype.ui.LockerDetailsActivity.class);
                     i.putExtra("lockerId", locker.getId());
                     startActivity(i);
