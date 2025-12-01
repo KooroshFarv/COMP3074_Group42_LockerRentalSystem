@@ -40,6 +40,7 @@ public class RentLockerActivity extends AppCompatActivity {
     private void refreshList(RecyclerView recycler) {
         List<Locker> available = LockerRepository.getInstance().getAvailable();
 
+
         LockerAdapter adapter = new LockerAdapter(
                 available,
                 true,

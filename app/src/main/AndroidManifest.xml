@@ -15,9 +15,12 @@
         <activity android:name=".RentLockerActivity" />
         <activity android:name=".ViewLockersActivity" />
         <activity android:name=".CreateAccountActivity"/>
+<<<<<<< Gurnoor_Khurana
         <activity android:name=".ui.ProfileActivity" />
         <activity android:name=".ui.LockerDetailsActivity" />
 
+=======
+>>>>>>> main
         <activity
             android:name=".HomeActivity"
             android:exported="false" />
