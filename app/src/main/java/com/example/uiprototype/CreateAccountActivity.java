@@ -1,13 +1,9 @@
 package com.example.uiprototype;
 
-<<<<<<< Gurnoor_Khurana
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Patterns;
-=======
-import android.os.Bundle;
 import android.view.View;
->>>>>>> main
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -16,22 +12,15 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class CreateAccountActivity extends AppCompatActivity {
-
-<<<<<<< Gurnoor_Khurana
     private EditText etName;
     private EditText etEmail;
     private EditText etPassword;
     private Button btnCreateAccount;
     private TextView textBackToLogin;
-
-=======
->>>>>>> main
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
-
-<<<<<<< Gurnoor_Khurana
         etName = findViewById(R.id.etName);
         etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
@@ -101,43 +90,5 @@ public class CreateAccountActivity extends AppCompatActivity {
         });
 
         textBackToLogin.setOnClickListener(v -> finish());
-=======
-        // Find views
-        EditText etName = findViewById(R.id.etName);
-        EditText etEmail = findViewById(R.id.etEmail);
-        EditText etPassword = findViewById(R.id.etPassword);
-        Button btnCreateAccount = findViewById(R.id.btnCreateAccount);
-        TextView textBackToLogin = findViewById(R.id.textBackToLogin);
-
-        // "Create Account" button click
-        btnCreateAccount.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                String name = etName.getText().toString().trim();
-                String email = etEmail.getText().toString().trim();
-                String password = etPassword.getText().toString().trim();
-
-                if(name.isEmpty() || email.isEmpty() || password.isEmpty()) {
-                    Toast.makeText(CreateAccountActivity.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(CreateAccountActivity.this, "Account created for " + name + "!", Toast.LENGTH_LONG).show();
-
-                    // Clear inputs
-                    etName.setText("");
-                    etEmail.setText("");
-                    etPassword.setText("");
-                }
-            }
-        });
-
-        // "Back to Login" TextView click
-        textBackToLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish(); // Return to LoginActivity
-            }
-        });
->>>>>>> main
     }
 }
