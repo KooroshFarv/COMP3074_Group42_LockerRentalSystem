@@ -39,19 +39,27 @@ public class RentLockerActivity extends AppCompatActivity {
 
     private void refreshList(RecyclerView recycler) {
         List<Locker> available = LockerRepository.getInstance().getAvailable();
-        LockerAdapter adapter = new LockerAdapter(available, true, locker -> {
-            boolean ok = LockerRepository.getInstance().rentLocker(locker.getId(), "test@example.com");
-            Toast.makeText(this, ok ? "Locker #" + locker.getId() + " rented!" : "Sorry, not available.", Toast.LENGTH_SHORT).show();
-            if (ok) refreshList(recycler);
-        },
-        locker -> {
-            Intent i = new Intent(this, LockerDetailsActivity.class);
-            i.putExtra("lockerId", locker.getId());
-            startActivity(i);
-            overridePendingTransition(R.anim.slide_to_right, R.anim.fade_out);
-        }
+
+
+        LockerAdapter adapter = new LockerAdapter(
+                available,
+                true,
+                locker -> {   // rent button click → go to details
+                    Intent i = new Intent(this, com.example.uiprototype.ui.LockerDetailsActivity.class);
+                    i.putExtra("lockerId", locker.getId());
+                    startActivity(i);
+                    overridePendingTransition(R.anim.slide_to_right, R.anim.fade_out);
+                },
+                locker -> {   // whole card click → also go to details
+                    Intent i = new Intent(this, com.example.uiprototype.ui.LockerDetailsActivity.class);
+                    i.putExtra("lockerId", locker.getId());
+                    startActivity(i);
+                    overridePendingTransition(R.anim.slide_to_right, R.anim.fade_out);
+                }
         );
+
         recycler.setAdapter(adapter);
     }
+
 
 }

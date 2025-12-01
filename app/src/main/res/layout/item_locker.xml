@@ -10,9 +10,11 @@
     android:layout_marginVertical="8dp"
     card_view:cardElevation="6dp"
     card_view:cardUseCompatPadding="true"
-    card_view:cardCornerRadius="18dp">
+    card_view:cardCornerRadius="18dp"
+    card_view:cardBackgroundColor="@color/glassCard">
 
-    <LinearLayout
+
+<LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -25,7 +27,7 @@
             android:text="Locker #201 — Medium"
             android:textStyle="bold"
             android:textSize="18sp"
-            android:textColor="#2A2340" />
+            android:textColor="@color/colorText" />
 
         <TextView
             android:id="@+id/txtSubtitle"
@@ -33,7 +35,7 @@
             android:layout_height="wrap_content"
             android:text="Level 2 – Aisle 3"
             android:textSize="14sp"
-            android:textColor="#5B5670"
+            android:textColor="@color/colorText"
             android:layout_marginTop="4dp" />
 
         <LinearLayout
@@ -50,17 +52,17 @@
                 android:layout_weight="1"
                 android:text="Available"
                 android:textStyle="bold"
-                android:textColor="#2A2340" />
+                android:textColor="@color/colorSecondary" />
 
             <Button
                 android:id="@+id/btnRent"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:background="@drawable/bg_button_purple"
+                android:textColor="@android:color/white"
                 android:paddingLeft="24dp"
                 android:paddingRight="24dp"
                 android:text="Rent"
-                android:textColor="@android:color/white"
                 android:textAllCaps="false" />
         </LinearLayout>
     </LinearLayout>

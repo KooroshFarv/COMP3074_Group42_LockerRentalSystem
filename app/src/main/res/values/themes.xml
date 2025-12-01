@@ -1,16 +1,24 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.UIPrototype" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
+        <!-- Dark / glassy look -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
-        <item name="colorOnPrimary">@color/colorBackground</item>
+        <item name="colorOnPrimary">@color/colorText</item>
+
         <item name="colorSecondary">@color/colorSecondary</item>
-        <item name="colorOnSecondary">@color/colorBackground</item>
+        <item name="colorOnSecondary">@color/colorOnSecondary</item>
+
+        <!-- Background / surfaces -->
         <item name="android:colorBackground">@color/colorBackground</item>
+        <item name="colorSurface">@color/colorPrimary</item>
+        <item name="colorOnSurface">@color/colorText</item>
+
+        <!-- Default text color -->
         <item name="android:textColor">@color/colorText</item>
 
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <!-- Optional: window background -->
+        <item name="android:windowBackground">@color/colorBackground</item>
     </style>
 
     <style name="Theme.UIPrototype" parent="Base.Theme.UIPrototype" />

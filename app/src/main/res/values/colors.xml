@@ -2,10 +2,12 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="colorPrimary">#2E3A59</color>
-    <color name="colorPrimaryVariant">#1C253B</color>
+    <color name="colorBackground">#121218</color>
+    <color name="colorPrimary">#1E1E26</color>
+    <color name="colorPrimaryVariant">#262633</color>
+    <color name="colorSecondary">#9F7BFF</color>
     <color name="colorOnSecondary">#FFFFFFFF</color>
-    <color name="colorSecondary">#4A90E2</color>
-    <color name="colorBackground">#F5F7FA</color>
-    <color name="colorText">#333333</color>
+    <color name="colorText">#EDEDED</color>
+    <color name="glassCard">#26FFFFFF</color>
+    <color name="glassBorder">#40FFFFFF</color>
 </resources>
